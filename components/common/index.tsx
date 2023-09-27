@@ -1,0 +1,6 @@
+export * from '@/components/common/carousel'
+export * from '@/components/common/container'
+export * from '@/components/common/footer'
+export * from '@/components/common/header'
+export * from '@/components/common/movie-list'
+export * from '@/components/common/swr-config'
