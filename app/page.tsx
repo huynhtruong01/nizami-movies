@@ -1,20 +1,35 @@
-import { Carousel, Container, MovieList } from '@/components/common'
+import { Carousel, Container } from '@/components/common'
+import { MovieListType } from '@/enums'
 
 export default function Home() {
     return (
-        <section className="py-12">
+        <section className="pb-12 pt-28">
             <Container>
-                <div className="mb-14">
-                    <Carousel title="Upcoming Soon" nextEl="next-1" prevEl="prev-1" />
-                </div>
-                <div className="mb-14">
-                    <Carousel title="Latest" nextEl="next-2" prevEl="prev-2" />
-                </div>
-                <div className="mb-14">
-                    <Carousel title="Popular" nextEl="next-3" prevEl="prev-3" />
-                </div>
-                <div className="mb-14">
-                    <Carousel title="Top Rated" nextEl="next-4" prevEl="prev-4" />
+                <div className="mt-10">
+                    <Carousel
+                        title="Top Rated"
+                        nextEl="next-4"
+                        prevEl="prev-4"
+                        movieListType={MovieListType.TOP_RATED}
+                    />
+                    <Carousel
+                        title="Upcoming Soon"
+                        nextEl="next-1"
+                        prevEl="prev-1"
+                        movieListType={MovieListType.UPCOMING}
+                    />
+                    <Carousel
+                        title="Now Playing"
+                        nextEl="next-2"
+                        prevEl="prev-2"
+                        movieListType={MovieListType.NOW_PLAYING}
+                    />
+                    <Carousel
+                        title="Popular"
+                        nextEl="next-3"
+                        prevEl="prev-3"
+                        movieListType={MovieListType.POPULAR}
+                    />
                 </div>
             </Container>
         </section>

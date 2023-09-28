@@ -1,19 +1,23 @@
 'use client'
 
 import { MovieCard } from '@/components/common/movie-list/components'
+import { LanguagesParam } from '@/enums'
+import { useMovieList } from '@/hooks'
+import { IMovieListType } from '@/models'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { ChevronLeftIcon, ChevronRightIcon } from '../icons'
+import { ChevronLeftIcon, ChevronRightIcon } from '@/components/icons'
+import { SkeletonMovieList, SkeletonText } from '@/components/loadings'
 
 export interface ICarouselProps {
+    movieListType: IMovieListType
     title: string
     nextEl?: string
     prevEl?: string
-    // movieList: IMovie[]
 }
 
 export interface ISwiperButtonProps {
@@ -45,11 +49,25 @@ export function SwiperButton({
 
 export function Carousel({
     title,
+    movieListType,
     nextEl = 'btn-next-slide',
     prevEl = 'btn-prev-slide',
 }: ICarouselProps) {
+    const { data, isLoading } = useMovieList({
+        movieListType,
+        params: { page: 1, language: LanguagesParam.EN },
+    })
+
+    if (isLoading)
+        return (
+            <div className="mb-14">
+                <SkeletonText className="mb-6 w-1/5 h-7" />
+                <SkeletonMovieList />
+            </div>
+        )
+
     return (
-        <div>
+        <div className="mb-10">
             <h2 className="text-xl font-medium mb-6">{title}</h2>
             <div className="relative">
                 <Swiper
@@ -62,9 +80,9 @@ export function Carousel({
                     }}
                     className="relative grid grid-cols-5 gap-4 overflow-hidden rounded"
                 >
-                    {Array.from({ length: 8 }, (_, i) => i + 1).map((movie) => (
-                        <SwiperSlide key={movie} className="max-w-[220px] mr-6">
-                            <MovieCard key={movie} />
+                    {data.results.map((movie) => (
+                        <SwiperSlide key={movie.id} className="max-w-[220px] mr-6">
+                            <MovieCard movie={movie} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

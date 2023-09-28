@@ -1,40 +1,28 @@
+'use client'
+
 import { PlayIcon } from '@/components/icons'
-import { BASE_IMAGE_URL } from '@/constants'
+import { BASE_IMAGE_URL, NO_POSTER } from '@/constants'
 import { IMovie } from '@/models'
 import { formatDate } from '@/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export interface IMovieCardProps {
-    // movie: IMovie
+    movie: IMovie
 }
 
-const movie = {
-    adult: false,
-    backdrop_path: '/iiXliCeykkzmJ0Eg9RYJ7F2CWSz.jpg',
-    genre_ids: [28, 9648, 53, 80],
-    id: 762430,
-    original_language: 'en',
-    original_title: 'Retribution',
-    overview:
-        "When a mysterious caller puts a bomb under his car seat, Matt Turner begins a high-speed chase across the city to complete a specific series of tasks. With his kids trapped in the back seat and a bomb that will explode if they get out of the car, a normal commute becomes a twisted game of life or death as Matt follows the stranger's increasingly dangerous instructions in a race against time to save his family.",
-    popularity: 1847.972,
-    poster_path: '/oUmmY7QWWn7OhKlcPOnirHJpP1F.jpg',
-    release_date: '2023-08-23',
-    title: 'Retribution',
-    video: false,
-    vote_average: 6.8,
-    vote_count: 218,
-}
-
-export function MovieCard(props: IMovieCardProps) {
+export function MovieCard({ movie }: IMovieCardProps) {
     return (
         <div className="relative w-full cursor-pointer">
             <Link href={`/movies/${movie.id}`} className="w-full">
                 <div className="w-full h-80 relative rounded-md overflow-hidden group">
                     <Image
-                        src={`${BASE_IMAGE_URL}${movie.poster_path}`}
-                        alt={movie.title}
+                        src={
+                            movie.poster_path
+                                ? `${BASE_IMAGE_URL}${movie.poster_path}`
+                                : NO_POSTER
+                        }
+                        alt={movie.title || movie.name}
                         fill
                         sizes="(min-width: 1260px) 214px, calc(19.15vw - 23px)"
                     />
@@ -45,7 +33,11 @@ export function MovieCard(props: IMovieCardProps) {
                     </div>
                 </div>
                 <div className="pt-4">
-                    <h3 className="font-semibold text-lg">{movie.title}</h3>
+                    <h3 className="font-semibold text-lg line-clamp-1">
+                        <span className="hover:underline hover:text-secondary">
+                            {movie.title || movie.name}
+                        </span>
+                    </h3>
                     <time className="text-sm text-secondary">
                         {formatDate(movie.release_date)}
                     </time>

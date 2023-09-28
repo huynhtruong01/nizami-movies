@@ -2,13 +2,14 @@ import * as React from 'react'
 
 export interface IPlayIconProps {
     className?: string
+    fill?: string
 }
 
-export function PlayIcon({ className = '' }: IPlayIconProps) {
+export function PlayIcon({ className = '', fill = 'none' }: IPlayIconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            fill={fill}
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"

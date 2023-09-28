@@ -1,1 +1,1 @@
-export * from '@/components/filters/search-form'
+export * from '@/components/filters/search-field'

@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'ax
 export * as movieApi from '@/api-client/movie-api'
 
 const axiosClient = axios.create({
-    baseURL: process.env.NEXT_BASE_URL,
+    baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -11,7 +11,7 @@ const axiosClient = axios.create({
 axiosClient.interceptors.request.use(
     function (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
         if (!config.headers.Authorization) {
-            config.headers.Authorization = `Bearer ${process.env.NEXT_ACCESS_TOKEN}`
+            config.headers.Authorization = `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`
         }
         return config
     },

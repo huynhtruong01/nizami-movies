@@ -1,7 +1,6 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['image.tmdb.org'],
+        domains: ['image.tmdb.org', 'res.cloudinary.com', 'img.youtube.com'],
     },
 }
 

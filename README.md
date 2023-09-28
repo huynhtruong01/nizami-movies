@@ -17,7 +17,7 @@
 
 - Video of the movie detail:
 
-`/3/movie/238/videos`
+`/3/movie/:movieId/videos`
 
 - Recommend movies:
 
@@ -25,8 +25,8 @@
 
 - Similar movies:
 
-`/3/movie/238/similar`
+`/3/movie/:movieId/similar`
 
 - Review movie detail:
 
-`/3/movie/238/reviews`
+`/3/movie/:movieId/reviews`

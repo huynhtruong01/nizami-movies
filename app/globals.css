@@ -11,7 +11,7 @@ a {
 }
 
 button {
-    @apply px-4 py-2 rounded bg-button-color text-primary hover:bg-button-color-dark ease-in-out duration-200;
+    @apply inline-flex justify-center items-center px-4 py-2 rounded bg-button-color text-primary hover:bg-button-color-dark disabled:cursor-not-allowed disabled:bg-button-color-light disabled:hover:bg-button-color-light ease-in-out duration-200;
 }
 
 ul,
@@ -21,6 +21,14 @@ li {
 
 img {
     @apply object-cover w-full;
+}
+
+p {
+    @apply leading-7;
+}
+
+.animation-wave-box {
+    @apply relative overflow-hidden bg-header-color after:content-[''] after:absolute after:inset-0 after:bg-skeleton-wave after:animate-skeleton-wave;
 }
 
 ::-webkit-scrollbar {
@@ -33,4 +41,10 @@ img {
 
 ::-webkit-scrollbar-thumb {
     @apply bg-header-color rounded-md;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
 }

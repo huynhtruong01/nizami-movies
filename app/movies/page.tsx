@@ -1,4 +1,5 @@
-import { Container, MovieList } from '@/components/common'
+import { Container } from '@/components/common'
+import { MovieDiscoverList } from '@/components/movie-discover-list'
 
 export const metadata = {
     title: 'Explore Movies',
@@ -6,10 +7,9 @@ export const metadata = {
 
 export default function MoviesPage() {
     return (
-        <section className="py-12">
+        <section className="pb-12 pt-28">
             <Container>
-                <h2 className="text-2xl text-primary font-medium mb-6">Explore Movies</h2>
-                <MovieList />
+                <MovieDiscoverList />
             </Container>
         </section>
     )

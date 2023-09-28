@@ -1,21 +1,19 @@
+import { IMovieListByIdType, IMovieListType, IParams, IResponseMovieList } from '@/models'
 import axiosClient from '.'
 
 const BASE_URL = '/movie'
 
-export const getAllLatestMovie = async () => {
-    return axiosClient.get(`${BASE_URL}/latest`).then((res) => res.data)
+export const getAllMovies = async (
+    params: IParams,
+    moviesType: IMovieListType
+): Promise<IResponseMovieList> => {
+    return axiosClient
+        .get(`${BASE_URL}/${moviesType}`, { params })
+        .then((res) => res.data)
 }
 
-export const getAllPopularMovie = async () => {
-    return axiosClient.get(`${BASE_URL}/popular`).then((res) => res.data)
-}
-
-export const getAllTopRatedMovie = async () => {
-    return axiosClient.get(`${BASE_URL}/top_rated`).then((res) => res.data)
-}
-
-export const getAllUpComingMovie = async () => {
-    return axiosClient.get(`${BASE_URL}/upcoming`).then((res) => res.data)
+export const getAllMovieDiscovers = async (params: IParams) => {
+    return axiosClient.get('discover/movie', { params }).then((res) => res.data)
 }
 
 export const getMovieId = async (movieId: number) => {
@@ -38,4 +36,36 @@ export const getAllMoviesSimilar = async (movieId: number) => {
 
 export const getAllReviewsMovie = async (movieId: number) => {
     return axiosClient.get(`${BASE_URL}/${movieId}/reviews`).then((res) => res.data)
+}
+
+export const getCredits = async (movieId: number, params: Omit<IParams, 'page'>) => {
+    return axiosClient
+        .get(`${BASE_URL}/${movieId}/credits`, {
+            params,
+        })
+        .then((res) => res.data)
+}
+
+export const getOfficeVideos = async (movieId: number, params: Omit<IParams, 'page'>) => {
+    return axiosClient
+        .get(`${BASE_URL}/${movieId}/videos`, {
+            params,
+        })
+        .then((res) => res.data)
+}
+
+export const getAllMoviesById = (
+    movieId: number,
+    params: IParams,
+    type: IMovieListByIdType
+) => {
+    return axiosClient
+        .get(`${BASE_URL}/${movieId}/${type}`, {
+            params,
+        })
+        .then((res) => res.data)
+}
+
+export const getAllMoviesSearch = async (params: IParams) => {
+    return axiosClient.get(`/search/${BASE_URL}`, { params }).then((res) => res.data)
 }

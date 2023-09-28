@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className={poppins.className}>
                 <SwrConfig>
                     <Header />
-                    <main className="pt-[72px] min-h-screen">{children}</main>
+                    <main className="min-h-screen">{children}</main>
                     <Footer />
                 </SwrConfig>
             </body>

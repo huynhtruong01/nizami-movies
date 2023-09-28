@@ -1,23 +1,12 @@
-'use client'
-
-import { SearchForm } from '@/components/filters'
 import { navLinks } from '@/data'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { FormEvent } from 'react'
-import { Container } from '.'
+import { Container } from '..'
+import { SearchFormHeader } from './components'
 
 export function Header() {
-    const router = useRouter()
-
-    const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        router.push('/search')
-    }
-
     return (
-        <header className="fixed top-0 left-0 w-full h-auto bg-header-color z-50">
+        <header className="fixed top-0 left-0 w-full h-auto bg-[hsla(0, 0%, 100%, 0.3)] backdrop-blur-md z-50">
             <Container>
                 <div className="py-4 w-full flex items-center justify-between">
                     <div className="flex items-center">
@@ -44,9 +33,7 @@ export function Header() {
                             </ul>
                         </nav>
                     </div>
-                    <form onSubmit={handleSearchSubmit}>
-                        <SearchForm placeholder={'Search movie name...'} />
-                    </form>
+                    <SearchFormHeader />
                 </div>
             </Container>
         </header>

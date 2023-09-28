@@ -14,6 +14,7 @@ const config: Config = {
                 'secondary-dark': '#555559',
                 'body-color': '#1D1D2D',
                 'header-color': '#222533',
+                'button-color-light': '#9a77d2',
                 'button-color': '#7434C3',
                 'button-color-dark': '#461f75',
                 'gray-color': '#C3C2C7',
@@ -22,9 +23,15 @@ const config: Config = {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':
                     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                'skeleton-wave':
+                    'linear-gradient(90deg, #222533 0, #7F848F 20%, #555559 60%, #222533)',
+                hero: 'linear-gradient(to bottom, #1D1D2D80, #1D1D2D)',
             },
             boxShadow: {
                 'button-play': '0px 0px 7px 8px #ff00004d;',
+            },
+            animation: {
+                'skeleton-wave': 'shimmer 3s infinite',
             },
         },
     },

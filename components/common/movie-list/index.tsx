@@ -1,16 +1,16 @@
 import { IMovie } from '@/models'
-import { MovieCard } from './components'
+import { MovieCard } from '@/components/common/movie-list/components'
 
 export interface IMovieListProps {
-    // movieList: IMovie
+    movieList: IMovie[]
     className?: string
 }
 
-export function MovieList({ className = '' }: IMovieListProps) {
+export function MovieList({ movieList, className = '' }: IMovieListProps) {
     return (
         <div className={`grid grid-cols-5 gap-x-6 gap-y-8 ${className}`}>
-            {Array.from({ length: 20 }, (_, i) => i + 1).map((movie) => (
-                <MovieCard key={movie} />
+            {movieList.map((movie) => (
+                <MovieCard key={movie.id} movie={movie} />
             ))}
         </div>
     )
