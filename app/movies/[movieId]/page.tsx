@@ -28,8 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: movie.title || movie.name,
         openGraph: {
-            images: [`${BASE_IMAGE_URL}${movie.poster_path}`],
+            images: [`${BASE_IMAGE_URL}${movie.backdrop_path}`],
         },
+        description: movie.overview,
     }
 }
 

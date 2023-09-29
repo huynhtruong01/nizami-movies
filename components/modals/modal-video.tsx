@@ -1,9 +1,8 @@
 'use client'
 
-import { Modal } from '.'
 import { CloseIcon } from '@/components/icons'
 import { videoStore } from '@/stores'
-import ReactPlayer from 'react-player'
+import { Modal } from '.'
 
 export function ModalVideo() {
     const isShow = videoStore((state) => state.isShow)
