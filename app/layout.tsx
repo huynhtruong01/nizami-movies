@@ -1,7 +1,9 @@
 import { Footer, Header, SwrConfig } from '@/components/common'
-import './globals.css'
+import { ModalVideo } from '@/components/modals'
+import { BANNER_HOME_PAGE } from '@/constants'
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Poppins } from 'next/font/google'
+import '@/app/globals.css'
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -10,9 +12,12 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-    title: 'Movie',
+    title: 'Nizami Movies',
     icons: {
         icon: '/favico.ico',
+    },
+    openGraph: {
+        images: [BANNER_HOME_PAGE],
     },
 }
 
@@ -23,6 +28,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <SwrConfig>
                     <Header />
                     <main className="min-h-screen">{children}</main>
+                    <div>
+                        <ModalVideo />
+                    </div>
                     <Footer />
                 </SwrConfig>
             </body>

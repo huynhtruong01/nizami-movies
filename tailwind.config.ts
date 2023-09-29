@@ -8,6 +8,16 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            keyframes: {
+                zoomOut: {
+                    to: {
+                        transform: 'scale(0)',
+                    },
+                    from: {
+                        transform: 'scale(1)',
+                    },
+                },
+            },
             colors: {
                 primary: '#ffffff',
                 secondary: '#7F848F',
@@ -25,13 +35,15 @@ const config: Config = {
                     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
                 'skeleton-wave':
                     'linear-gradient(90deg, #222533 0, #7F848F 20%, #555559 60%, #222533)',
-                hero: 'linear-gradient(to bottom, #1D1D2D80, #1D1D2D)',
+                hero: 'linear-gradient(to bottom, #1D1D2D66 40%, #1D1D2D)',
+                banner: 'linear-gradient(to bottom, #1D1D2D26 70%, #1D1D2D)',
             },
             boxShadow: {
                 'button-play': '0px 0px 7px 8px #ff00004d;',
             },
             animation: {
                 'skeleton-wave': 'shimmer 3s infinite',
+                'zoom-out': 'zoomOut 4s ease-in-out',
             },
         },
     },

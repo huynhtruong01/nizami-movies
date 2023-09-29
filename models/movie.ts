@@ -11,6 +11,24 @@ export type IMovieListByIdType =
     | MovieListByIdType.RECOMMENDATIONS
     | MovieListByIdType.SIMILAR
 
+export interface ISpokenLanguage {
+    english_name: string
+    iso_639_1: ILanguages
+    name: string
+}
+
+export interface IProductionCountry {
+    iso_3166_1: string
+    name: string
+}
+
+export interface IProductionCompany {
+    id: number
+    logo_path: string
+    name: string
+    origin_country: string
+}
+
 export interface IMovie {
     id: number
     title: string
@@ -27,6 +45,13 @@ export interface IMovie {
     adult?: boolean
     backdrop_path: string
     genre_ids: number[]
+    runtime: number
+    revenue: number
+    status: string
+    imdb_id: string
+    spoken_languages: ISpokenLanguage[]
+    production_countries: IProductionCountry[]
+    production_companies: IProductionCompany[]
 }
 
 export interface IResponseMovieList {

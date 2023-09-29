@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    user-select: none;
+}
+
 body {
     @apply bg-body-color text-white;
 }
@@ -25,6 +29,14 @@ img {
 
 p {
     @apply leading-7;
+}
+
+.banner .swiper-slide-active div {
+    @apply scale-110 h-64 rounded-md ease-in-out duration-300;
+}
+
+.banner .swiper {
+    @apply !h-80;
 }
 
 .animation-wave-box {

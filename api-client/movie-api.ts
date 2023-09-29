@@ -16,8 +16,8 @@ export const getAllMovieDiscovers = async (params: IParams) => {
     return axiosClient.get('discover/movie', { params }).then((res) => res.data)
 }
 
-export const getMovieId = async (movieId: number) => {
-    return axiosClient.get(`${BASE_URL}/${movieId}`).then((res) => res.data)
+export const getDetailById = async (movieId: number, pathname = 'movie') => {
+    return axiosClient.get(`/${pathname}/${movieId}`).then((res) => res.data)
 }
 
 export const getAllVideosByMovieId = async (movieId: number) => {

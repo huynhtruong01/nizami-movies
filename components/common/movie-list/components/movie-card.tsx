@@ -9,12 +9,13 @@ import Link from 'next/link'
 
 export interface IMovieCardProps {
     movie: IMovie
+    pathnameApi?: string
 }
 
-export function MovieCard({ movie }: IMovieCardProps) {
+export function MovieCard({ movie, pathnameApi = 'movies' }: IMovieCardProps) {
     return (
         <div className="relative w-full cursor-pointer">
-            <Link href={`/movies/${movie.id}`} className="w-full">
+            <Link href={`/${pathnameApi}/${movie.id}`} className="w-full">
                 <div className="w-full h-80 relative rounded-md overflow-hidden group">
                     <Image
                         src={

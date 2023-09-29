@@ -8,9 +8,15 @@ export interface IMoviePosterProps {
     url: string
     alt: string
     isLoading?: boolean
+    onShowClick?: () => void
 }
 
-export function MoviePoster({ url, alt, isLoading = false }: IMoviePosterProps) {
+export function MoviePoster({
+    url,
+    alt,
+    isLoading = false,
+    onShowClick,
+}: IMoviePosterProps) {
     return (
         <div className="relative w-64 h-96 rounded-md overflow-hidden">
             {isLoading && <SkeletonCard className="!w-full !h-full" />}
@@ -23,7 +29,10 @@ export function MoviePoster({ url, alt, isLoading = false }: IMoviePosterProps) 
                         sizes="(min-width: 1260px) 214px, calc(19.15vw - 23px)"
                     />
                     <Overlay>
-                        <button className="w-3/5 !flex !bg-red-700 absolute bottom-6 left-1/2 -translate-x-1/2 text-sm !rounded-md hover:!bg-red-900">
+                        <button
+                            className="w-3/5 !flex !bg-red-700 absolute bottom-6 left-1/2 -translate-x-1/2 text-sm !rounded-md hover:!bg-red-900"
+                            onClick={onShowClick}
+                        >
                             <PlayIcon fill={'currentColor'} className="w-5 h-5 mr-2" />{' '}
                             <span className="inline-block">Watch Now</span>
                         </button>

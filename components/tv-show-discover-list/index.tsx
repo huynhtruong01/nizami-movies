@@ -36,7 +36,10 @@ export function TvShowDiscoverList() {
         <div>
             <h2 className="text-2xl text-primary font-medium mb-6">Explore TV Shows</h2>
             <div>
-                <MovieInfinityList movies={data as IResponseMovieList[]} />
+                <MovieInfinityList
+                    movies={data as IResponseMovieList[]}
+                    pathnameApi="tv-shows"
+                />
                 <div ref={ref}></div>
                 {isValidating && (
                     <SkeletonMovieList

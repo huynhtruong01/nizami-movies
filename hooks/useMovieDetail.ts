@@ -5,13 +5,18 @@ import useSWR, { SWRConfiguration } from 'swr'
 
 export interface IUseMovieDetail {
     movieId: number
+    pathname?: string
     options?: SWRConfiguration
 }
 
-export const useMovieDetail = ({ movieId, options }: IUseMovieDetail) => {
+export const useMovieDetail = ({
+    movieId,
+    pathname = 'movie',
+    options,
+}: IUseMovieDetail) => {
     const result = useSWR(
         [QUERY_KEYS.MOVIE_DETAIL, movieId],
-        () => movieApi.getMovieId(movieId),
+        () => movieApi.getDetailById(movieId, pathname),
         {
             keepPreviousData: true,
             dedupingInterval: 30 * 1000, // 30s

@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 export * as movieApi from '@/api-client/movie-api'
+export * as tvShowApi from '@/api-client/tv-show-api'
 
 const axiosClient = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,

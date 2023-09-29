@@ -24,7 +24,7 @@ export function SearchField({
                     value={search}
                     onChange={onChange}
                     placeholder={placeholder}
-                    className="absolute w-full h-full pl-11 py-2 outline-none placeholder:text-sm text-sm text-secondary-dark"
+                    className="absolute w-full h-full pl-11 py-2 outline-none rounded border border-transparent placeholder:text-sm text-sm text-secondary-dark focus:border-secondary ease-in-out duration-200"
                 />
                 <div className="absolute top-0 left-0 flex justify-center items-center w-10 h-full">
                     <SearchIcon className="!w-5 !h-5 text-secondary-dark" />

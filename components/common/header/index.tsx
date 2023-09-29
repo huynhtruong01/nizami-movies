@@ -1,8 +1,7 @@
-import { navLinks } from '@/data'
+import { NavHeader, SearchFormHeader } from '@/components/common/header/components'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '..'
-import { SearchFormHeader } from './components'
 
 export function Header() {
     return (
@@ -18,20 +17,7 @@ export function Header() {
                                 sizes="(min-width: 720px) 125px, 118px"
                             />
                         </Link>
-                        <nav>
-                            <ul className="flex items-center">
-                                {navLinks.map((nav) => (
-                                    <li key={nav.link}>
-                                        <Link
-                                            href={nav.link}
-                                            className="py-2 px-4 font-medium text-white"
-                                        >
-                                            {nav.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
+                        <NavHeader />
                     </div>
                     <SearchFormHeader />
                 </div>

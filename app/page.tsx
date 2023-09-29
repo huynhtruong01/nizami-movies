@@ -1,9 +1,11 @@
 import { Carousel, Container } from '@/components/common'
+import { BannerHome } from '@/components/home/components'
 import { MovieListType } from '@/enums'
 
 export default function Home() {
     return (
-        <section className="pb-12 pt-28">
+        <section className="pb-12">
+            <BannerHome />
             <Container>
                 <div className="mt-10">
                     <Carousel

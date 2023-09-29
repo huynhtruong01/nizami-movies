@@ -1,7 +1,8 @@
 'use client'
 
 import axiosClient from '@/api-client'
-import { ReactNode } from 'react'
+import { movieStore } from '@/stores'
+import { ReactNode, useEffect } from 'react'
 import { SWRConfig } from 'swr'
 
 export interface ISwrConfigProps {
@@ -9,6 +10,12 @@ export interface ISwrConfigProps {
 }
 
 export function SwrConfig({ children }: ISwrConfigProps) {
+    const fetchMovieDiscover = movieStore((state) => state.fetchMovieDiscover)
+
+    useEffect(() => {
+        fetchMovieDiscover()
+    }, [])
+
     return (
         <SWRConfig
             value={{

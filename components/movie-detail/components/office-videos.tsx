@@ -4,8 +4,10 @@ import { SkeletonText, SkeletonVideoList } from '@/components/loadings'
 import { NO_POSTER } from '@/constants'
 import { LanguagesParam } from '@/enums'
 import { useOfficeVideos } from '@/hooks'
+import { videoStore } from '@/stores'
 import { convertLinkImgYoutube } from '@/utils'
 import Image from 'next/image'
+import { MutableRefObject, useEffect } from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -16,15 +18,30 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 export interface IOfficeVideosProps {
     movieId: number
     className?: string
+    setKeyVideoId?: MutableRefObject<string | null>
 }
 
-export function OfficeVideos({ movieId, className = '' }: IOfficeVideosProps) {
+export function OfficeVideos({
+    movieId,
+    className = '',
+    setKeyVideoId,
+}: IOfficeVideosProps) {
+    const setShowModal = videoStore((state) => state.setShowModal)
+
     const { data, isLoading } = useOfficeVideos({
         params: {
             language: LanguagesParam.EN,
         },
         movieId,
     })
+
+    if (data?.results?.length && setKeyVideoId) {
+        setKeyVideoId.current = data.results[0].key
+    }
+
+    const handleShowModal = (keyVideo: string) => {
+        setShowModal(true, keyVideo)
+    }
 
     if (isLoading)
         return (
@@ -47,7 +64,10 @@ export function OfficeVideos({ movieId, className = '' }: IOfficeVideosProps) {
             >
                 {data?.results.map((video) => (
                     <SwiperSlide key={video.id} className="w-full">
-                        <div className="w-full h-48 relative rounded-md overflow-hidden">
+                        <div
+                            className="w-full h-48 relative rounded-md overflow-hidden"
+                            onClick={() => handleShowModal(video.key)}
+                        >
                             <Image
                                 src={
                                     video.key
@@ -58,7 +78,7 @@ export function OfficeVideos({ movieId, className = '' }: IOfficeVideosProps) {
                                 fill
                             />
                             <Overlay>
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary z-40 p-3 hover:scale-110 ease-in-out duration-200">
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-transparent bg-primary hover:bg-transparent hover:border-red-700 z-40 p-3 hover:scale-110 ease-in-out duration-200">
                                     <PlayIcon
                                         className="text-red-700"
                                         fill="currentColor"
