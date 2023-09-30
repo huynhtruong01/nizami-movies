@@ -29,7 +29,7 @@ export function SearchFormHeader() {
     }
 
     return (
-        <form onSubmit={handleSearchSubmit}>
+        <form onSubmit={handleSearchSubmit} className="block sm:hidden">
             <SearchField
                 search={search}
                 onChange={handleSearchChange}

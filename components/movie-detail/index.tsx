@@ -42,15 +42,15 @@ export function MovieDetailInfo({ movieId, pathname = 'movie' }: IMovieDetailInf
                     }}
                 ></div>
             )}
-            <Container className="relative -mt-48 z-40">
-                <div className="flex justify-center gap-6 max-w-[960px] mx-auto mb-20">
+            <Container className="relative -mt-48 lg:-mt-80 md:-mt-96 sm:-mt-64 z-40">
+                <div className="max-w-[960px] lg:max-w-full grid grid-cols-[256px_1fr] gap-6 md:grid-cols-1 justify-center mx-auto mb-20">
                     <MoviePoster
                         url={movie.poster_path}
                         alt={movie.title || movie.name}
                         isLoading={isLoading}
                         onShowClick={handleShowMovie}
                     />
-                    <div className="flex-1 inline-block">
+                    <div className="grid grid-cols-1 md:mt-8">
                         <MovieInfoHeader
                             movie={movie}
                             className="mb-4"

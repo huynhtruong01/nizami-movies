@@ -59,8 +59,25 @@ export function OfficeVideos({
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={16}
-                slidesPerView={3.5}
+                slidesPerView={4.5}
                 className="overflow-hidden cursor-pointer rounded-md"
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    480: {
+                        slidesPerView: 1.5,
+                    },
+                    640: {
+                        slidesPerView: 2.5,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4.5,
+                    },
+                }}
             >
                 {data?.results.map((video) => (
                     <SwiperSlide key={video.id} className="w-full">

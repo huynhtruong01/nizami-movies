@@ -73,15 +73,32 @@ export function Carousel({
                 <Swiper
                     modules={[Navigation]}
                     spaceBetween={24}
-                    slidesPerView={5}
+                    slidesPerView={4.5}
                     navigation={{
                         nextEl: `.${nextEl}`,
                         prevEl: `.${prevEl}`,
                     }}
-                    className="relative grid grid-cols-5 gap-4 overflow-hidden rounded"
+                    className="relative grid lg:grid-cols-4 gap-4 overflow-hidden rounded"
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1.25,
+                        },
+                        480: {
+                            slidesPerView: 2.5,
+                        },
+                        640: {
+                            slidesPerView: 2.5,
+                        },
+                        768: {
+                            slidesPerView: 3.5,
+                        },
+                        1024: {
+                            slidesPerView: 4.5,
+                        },
+                    }}
                 >
                     {data.results.map((movie) => (
-                        <SwiperSlide key={movie.id} className="max-w-[220px] mr-6">
+                        <SwiperSlide key={movie.id} className="mr-6">
                             <MovieCard movie={movie} />
                         </SwiperSlide>
                     ))}

@@ -16,7 +16,7 @@ export function MovieCard({ movie, pathnameApi = 'movies' }: IMovieCardProps) {
     return (
         <div className="relative w-full cursor-pointer">
             <Link href={`/${pathnameApi}/${movie.id}`} className="w-full">
-                <div className="w-full h-80 relative rounded-md overflow-hidden group">
+                <div className="w-full h-80 xs:h-96 relative rounded-md overflow-hidden group">
                     <Image
                         src={
                             movie.poster_path
@@ -25,7 +25,8 @@ export function MovieCard({ movie, pathnameApi = 'movies' }: IMovieCardProps) {
                         }
                         alt={movie.title || movie.name}
                         fill
-                        sizes="(min-width: 1260px) 214px, calc(19.15vw - 23px)"
+                        // sizes="(min-width: 1260px) 214px, calc(19.15vw - 23px)"
+                        sizes="100%"
                     />
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent opacity-0 hover:opacity-100 to-black duration-200 ease-in-out">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-700 shadow-button-play z-40 p-3 group-hover:scale-110 ease-in-out duration-200">

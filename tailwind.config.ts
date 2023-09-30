@@ -7,6 +7,26 @@ const config: Config = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
+        screens: {
+            '2xl': {
+                max: '1535px',
+            },
+            xl: {
+                max: '1279px',
+            },
+            lg: {
+                max: '1023px',
+            },
+            md: {
+                max: '768px',
+            },
+            sm: {
+                max: '639px',
+            },
+            xs: {
+                max: '479px',
+            },
+        },
         extend: {
             keyframes: {
                 zoomOut: {
@@ -36,7 +56,7 @@ const config: Config = {
                 'skeleton-wave':
                     'linear-gradient(90deg, #222533 0, #7F848F 20%, #555559 60%, #222533)',
                 hero: 'linear-gradient(to bottom, #1D1D2D66 40%, #1D1D2D)',
-                banner: 'linear-gradient(to bottom, #1D1D2D26 70%, #1D1D2D)',
+                banner: 'linear-gradient(to bottom, #1D1D2D26, #1D1D2D 98%)',
             },
             boxShadow: {
                 'button-play': '0px 0px 7px 8px #ff00004d;',

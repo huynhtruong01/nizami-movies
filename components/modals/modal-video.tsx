@@ -15,7 +15,7 @@ export function ModalVideo() {
 
     return (
         <Modal isShow={isShow}>
-            <div className="max-w-[800px] w-full">
+            <div className="max-w-[800px] lg:max-w-[95%] w-full">
                 <div className="flex justify-end">
                     <CloseIcon
                         className="h-8 w-8 cursor-pointer hover:scale-125 text-button-color ease-in-out duration-200"

@@ -34,31 +34,31 @@ export function MovieContent({
                 {movie.overview}
             </p>
             <div className="mt-6 flex flex-col gap-3">
-                <div className="flex text-sm">
+                <div className="flex text-sm xs:flex-col">
                     <span className="max-w-[200px] w-full text-secondary">
                         Production Countries
                     </span>
-                    <span className="leading-normal">
+                    <span className="leading-normal xs:mt-1">
                         {movie.production_countries
                             .map((country) => country.name)
                             .join(', ')}
                     </span>
                 </div>
-                <div className="flex text-sm">
+                <div className="flex text-sm xs:flex-col">
                     <span className="max-w-[200px] w-full text-secondary">
                         Production Companies
                     </span>
-                    <span className="leading-normal">
+                    <span className="leading-normal xs:mt-1">
                         {movie.production_companies
                             .map((company) => company.name)
                             .join(', ') || 'No information'}
                     </span>
                 </div>
-                <div className="flex text-sm">
+                <div className="flex text-sm xs:flex-col">
                     <span className="max-w-[200px] w-full text-secondary">
                         Spoke Languages
                     </span>
-                    <span className="leading-normal">
+                    <span className="leading-normal xs:mt-1">
                         {movie.spoken_languages
                             .map((language) => language.name)
                             .join(', ')}

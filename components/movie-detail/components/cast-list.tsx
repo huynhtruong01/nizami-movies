@@ -41,10 +41,30 @@ export function CastList({ movieId, className = '' }: ICastListProps) {
                 modules={[Navigation]}
                 spaceBetween={12}
                 slidesPerView={4.5}
-                className="max-w-[calc(960px-280px)] !inline-block overflow-hidden cursor-pointer rounded-md"
+                className="overflow-hidden cursor-pointer rounded-md"
+                breakpoints={{
+                    0: {
+                        slidesPerView: 2.5,
+                    },
+                    480: {
+                        slidesPerView: 3.5,
+                    },
+                    640: {
+                        slidesPerView: 3.5,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                    },
+                    1024: {
+                        slidesPerView: 4.5,
+                    },
+                    1535: {
+                        slidesPerView: 4.5,
+                    },
+                }}
             >
                 {data?.cast?.map((cast) => (
-                    <SwiperSlide key={cast.id} className="w-full">
+                    <SwiperSlide key={cast.id}>
                         <CastItem cast={cast} />
                     </SwiperSlide>
                 ))}

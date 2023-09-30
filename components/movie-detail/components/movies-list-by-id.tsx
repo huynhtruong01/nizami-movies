@@ -51,9 +51,26 @@ export function MovieListById({
                     spaceBetween={16}
                     slidesPerView={4.5}
                     className="relative overflow-hidden rounded"
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1.25,
+                        },
+                        480: {
+                            slidesPerView: 2.5,
+                        },
+                        640: {
+                            slidesPerView: 2.5,
+                        },
+                        768: {
+                            slidesPerView: 3.5,
+                        },
+                        1024: {
+                            slidesPerView: 4.5,
+                        },
+                    }}
                 >
                     {data?.results.map((movie) => (
-                        <SwiperSlide key={movie.id} className="mr-6">
+                        <SwiperSlide key={movie.id} className="mr-6 md:mr-0 w-full">
                             <MovieCard movie={movie} />
                         </SwiperSlide>
                     ))}

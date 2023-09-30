@@ -14,7 +14,8 @@ a {
     display: inline-block;
 }
 
-button {
+button,
+.btn {
     @apply inline-flex justify-center items-center px-4 py-2 rounded bg-button-color text-primary hover:bg-button-color-dark disabled:cursor-not-allowed disabled:bg-button-color-light disabled:hover:bg-button-color-light ease-in-out duration-200;
 }
 
@@ -35,7 +36,7 @@ p {
     @apply scale-110 h-64 rounded-md ease-in-out duration-300;
 }
 
-.banner .swiper {
+.banner.swiper {
     @apply !h-80;
 }
 

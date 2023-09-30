@@ -16,7 +16,7 @@ export async function generateMetadata({
 
 export default function SearchMoviePage({ searchParams }: ISearchMovieProps) {
     return (
-        <section className="pb-14 pt-24">
+        <section className="pb-14 pt-24 md:pt-20">
             <Container>
                 <h2 className="text-2xl text-primary font-medium mb-6">
                     Search results of “

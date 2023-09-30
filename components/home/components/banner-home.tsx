@@ -35,9 +35,9 @@ export function BannerHome() {
     }
 
     return (
-        <div className="banner relative w-full min-h-screen bg-header-color">
+        <div className="relative w-full min-h-screen md:min-h-[300px] h-full bg-header-color">
             <div
-                className="absolute top-0 left-0 bg-center bg-cover bg-no-repeat w-full h-full before:content-[''] before:absolute before:inset-0 before:w-full before:h-full before:bg-banner before:z-10"
+                className="absolute block md:hidden top-0 left-0 bg-center bg-cover bg-no-repeat w-full h-full before:content-[''] before:absolute before:inset-0 before:w-full before:h-full before:bg-banner before:z-10"
                 style={{
                     backgroundImage: `url(${
                         movie
@@ -46,11 +46,43 @@ export function BannerHome() {
                     })`,
                 }}
             ></div>
-            <div className="absolute bottom-8 left-0 w-full z-30">
+            <div className="hidden md:block h-auto before:content-[''] before:absolute before:inset-0 before:w-full before:h-[101%] before:bg-banner before:z-10">
+                <Swiper
+                    modules={[Autoplay]}
+                    spaceBetween={4}
+                    slidesPerView={1}
+                    autoplay={{
+                        delay: 1500,
+                        disableOnInteraction: false,
+                    }}
+                    className="relative !w-full h-[300px]"
+                >
+                    {movies.map((movie) => (
+                        <SwiperSlide
+                            key={movie.id}
+                            data-movie-id={movie.id}
+                            className="banner w-full"
+                            onClick={() => handleSlideClick(movie)}
+                        >
+                            <div
+                                className="absolute inset-0 bg-center bg-cover bg-no-repeat w-full h-full"
+                                style={{
+                                    backgroundImage: `url(${
+                                        movie
+                                            ? `${BASE_IMAGE_URL}${movie.backdrop_path}`
+                                            : INIT_BACKGROUND
+                                    })`,
+                                }}
+                            ></div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+            <div className="absolute bottom-8 left-0 w-full z-30 block md:hidden">
                 <Swiper
                     // modules={[Autoplay]}
                     spaceBetween={30}
-                    slidesPerView={9}
+                    slidesPerView={'auto'}
                     slideToClickedSlide
                     // autoplay={{
                     //     delay: 1500,
@@ -58,7 +90,7 @@ export function BannerHome() {
                     // }}
                     className="relative"
                     // onSlideChange={handleSlideChange}
-                    centeredSlides
+                    // centeredSlides
                 >
                     {movies.map((movie) => (
                         <SwiperSlide
@@ -67,7 +99,7 @@ export function BannerHome() {
                             className="!w-[159px] !flex items-center mr-6 rounded-md"
                             onClick={() => handleSlideClick(movie)}
                         >
-                            <div className="relative w-full h-52 rounded-md overflow-hidden">
+                            <div className="relative w-full h-52 rounded-md overflow-hidden cursor-pointer">
                                 <Image
                                     src={`${BASE_IMAGE_URL}${movie.poster_path}`}
                                     alt={movie.title}

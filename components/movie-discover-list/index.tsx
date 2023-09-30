@@ -29,7 +29,7 @@ export function MovieDiscoverList() {
     if (isLoading)
         return (
             <div className="mb-14">
-                <SkeletonText className="mb-6 w-1/5 h-8" />
+                <SkeletonText className="mb-6 w-1/5  md:w-3/5 h-8" />
                 <SkeletonMovieList quantities={20} className="!gap-x-6 !gap-y-8" />
             </div>
         )

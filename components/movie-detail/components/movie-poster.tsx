@@ -18,7 +18,7 @@ export function MoviePoster({
     onShowClick,
 }: IMoviePosterProps) {
     return (
-        <div className="relative w-64 h-96 rounded-md overflow-hidden">
+        <div className="relative w-64 h-96 mx-auto rounded-md overflow-hidden">
             {isLoading && <SkeletonCard className="!w-full !h-full" />}
             {!isLoading && (
                 <>

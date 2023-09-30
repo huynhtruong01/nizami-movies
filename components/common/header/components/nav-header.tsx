@@ -16,7 +16,7 @@ export function NavHeader() {
     }, [pathname])
 
     return (
-        <nav>
+        <nav className="block md:hidden">
             <ul className="flex items-center">
                 {navLinks.map((nav) => (
                     <li key={nav.link}>

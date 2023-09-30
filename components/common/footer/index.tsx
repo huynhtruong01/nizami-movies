@@ -9,7 +9,7 @@ export function Footer() {
         <footer className="bg-header-color pt-10 pb-6">
             <Container>
                 <div className="pb-8">
-                    <ul className="flex gap-6">
+                    <ul className="grid grid-cols-4 md:grid-cols-2 xs:grid-cols-1 gap-6">
                         {footerData.map((data) => (
                             <FooterItem
                                 key={data.title}
