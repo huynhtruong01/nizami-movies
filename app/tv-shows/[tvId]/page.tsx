@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 
 export async function generateStaticParams() {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/discover/tv?language=en-US&page=1`,
         {
             headers: {
                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
