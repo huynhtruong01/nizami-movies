@@ -16,20 +16,6 @@ export function BannerHome() {
     const movies = movieStore((state) => state.movies)
     const [movie, setMovie] = useState<IMovie>(movies[0])
 
-    const handleSlideChange = (swiper: any) => {
-        console.log(Array.from(swiper.slides).map((x: any) => x.className))
-        const activeClass = [...swiper.slides].filter((x: any) => {
-            return x.className.split(' ').includes('swiper-slide-active')
-        })
-        console.log(activeClass)
-        // console.log(activeClass)
-        // if (activeClass && activeClass.dataset.movieId) {
-        //     const movie = movies.find((m) => m.id === +activeClass.dataset.movieId)
-        //     console.log(movie?.title, +activeClass.dataset.movieId)
-        //     if (movie) setMovie(movie)
-        // }
-    }
-
     const handleSlideClick = (movie: IMovie) => {
         setMovie(movie)
     }
@@ -48,6 +34,7 @@ export function BannerHome() {
             ></div>
             <div className="hidden md:block h-auto before:content-[''] before:absolute before:inset-0 before:w-full before:h-[101%] before:bg-banner before:z-10">
                 <Swiper
+                    className="relative !w-full h-[300px]"
                     modules={[Autoplay]}
                     spaceBetween={4}
                     slidesPerView={1}
@@ -55,7 +42,6 @@ export function BannerHome() {
                         delay: 1500,
                         disableOnInteraction: false,
                     }}
-                    className="relative !w-full h-[300px]"
                 >
                     {movies.map((movie) => (
                         <SwiperSlide
@@ -80,23 +66,34 @@ export function BannerHome() {
             </div>
             <div className="absolute bottom-8 left-0 w-full z-30 block md:hidden">
                 <Swiper
-                    // modules={[Autoplay]}
                     spaceBetween={30}
-                    slidesPerView={'auto'}
+                    slidesPerView={9}
                     slideToClickedSlide
-                    // autoplay={{
-                    //     delay: 1500,
-                    //     disableOnInteraction: false,
-                    // }}
-                    className="relative"
-                    // onSlideChange={handleSlideChange}
-                    // centeredSlides
+                    className="relative banner"
+                    centeredSlides
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 3,
+                        },
+                        480: {
+                            slidesPerView: 4,
+                        },
+                        640: {
+                            slidesPerView: 6,
+                        },
+                        768: {
+                            slidesPerView: 5,
+                        },
+                        1024: {
+                            slidesPerView: 9,
+                        },
+                    }}
                 >
                     {movies.map((movie) => (
                         <SwiperSlide
                             key={movie.id}
                             data-movie-id={movie.id}
-                            className="!w-[159px] !flex items-center mr-6 rounded-md"
+                            className="!flex items-center mr-6 rounded-md"
                             onClick={() => handleSlideClick(movie)}
                         >
                             <div className="relative w-full h-52 rounded-md overflow-hidden cursor-pointer">

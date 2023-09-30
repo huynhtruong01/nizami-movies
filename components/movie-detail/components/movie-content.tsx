@@ -41,7 +41,7 @@ export function MovieContent({
                     <span className="leading-normal xs:mt-1">
                         {movie.production_countries
                             .map((country) => country.name)
-                            .join(', ')}
+                            .join(', ') || 'No information'}
                     </span>
                 </div>
                 <div className="flex text-sm xs:flex-col">
@@ -61,7 +61,7 @@ export function MovieContent({
                     <span className="leading-normal xs:mt-1">
                         {movie.spoken_languages
                             .map((language) => language.name)
-                            .join(', ')}
+                            .join(', ') || 'No information'}
                     </span>
                 </div>
             </div>

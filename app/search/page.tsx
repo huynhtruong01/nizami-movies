@@ -1,4 +1,4 @@
-import { Container, MovieList } from '@/components/common'
+import { Container } from '@/components/common'
 import { SearchMovies } from '@/components/search-movies'
 import { Metadata } from 'next'
 

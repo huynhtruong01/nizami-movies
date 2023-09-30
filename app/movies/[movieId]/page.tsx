@@ -3,6 +3,21 @@ import { BASE_IMAGE_URL } from '@/constants'
 import { IMovie } from '@/models'
 import { Metadata } from 'next'
 
+export async function generateStaticParams() {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`,
+        {
+            headers: {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
+            },
+        }
+    ).then((res) => res.json())
+
+    return res.results?.map((movie: IMovie) => ({
+        movieId: movie.id.toString(),
+    }))
+}
+
 export interface IMovieDetailPageProps {
     params: {
         movieId: string
