@@ -3,20 +3,20 @@ import { BASE_IMAGE_URL } from '@/constants'
 import { IMovie } from '@/models'
 import { Metadata } from 'next'
 
-export async function generateStaticParams() {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/discover/tv?language=en-US&page=1`,
-        {
-            headers: {
-                Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
-            },
-        }
-    ).then((res) => res.json())
+// export async function generateStaticParams() {
+//     const res = await fetch(
+//         `${process.env.NEXT_PUBLIC_BASE_URL}/discover/tv?language=en-US&page=1`,
+//         {
+//             headers: {
+//                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
+//             },
+//         }
+//     ).then((res) => res.json())
 
-    return res.results?.map((tvShow: IMovie) => ({
-        movieId: tvShow.id.toString(),
-    }))
-}
+//     return res.results?.map((tvShow: IMovie) => ({
+//         movieId: tvShow.id.toString(),
+//     }))
+// }
 
 export interface ITvShowDetailPageProps {
     params: {
