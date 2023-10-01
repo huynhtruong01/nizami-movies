@@ -1,6 +1,5 @@
 import { movieApi } from '@/api-client'
 import { QUERY_KEYS } from '@/constants'
-import { IMovie } from '@/models'
 import useSWR, { SWRConfiguration } from 'swr'
 
 export interface IUseMovieDetail {

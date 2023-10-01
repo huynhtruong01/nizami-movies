@@ -12,6 +12,7 @@ import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@/components/icons'
 import { SkeletonMovieList, SkeletonText } from '@/components/loadings'
+import { breakPointCarousel } from '@/data'
 
 export interface ICarouselProps {
     movieListType: IMovieListType
@@ -79,23 +80,7 @@ export function Carousel({
                         prevEl: `.${prevEl}`,
                     }}
                     className="relative grid lg:grid-cols-4 gap-4 overflow-hidden rounded"
-                    breakpoints={{
-                        0: {
-                            slidesPerView: 1.25,
-                        },
-                        480: {
-                            slidesPerView: 2.5,
-                        },
-                        640: {
-                            slidesPerView: 2.5,
-                        },
-                        768: {
-                            slidesPerView: 3.5,
-                        },
-                        1024: {
-                            slidesPerView: 4.5,
-                        },
-                    }}
+                    breakpoints={breakPointCarousel}
                 >
                     {data.results.map((movie) => (
                         <SwiperSlide key={movie.id} className="mr-6">

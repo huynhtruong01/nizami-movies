@@ -23,3 +23,21 @@ export const footerData = [
         items: ['Help & contact us', 'Return', 'Online stores', 'Terms & cordition'],
     },
 ]
+
+export const breakPointCarousel = {
+    0: {
+        slidesPerView: 1.25,
+    },
+    480: {
+        slidesPerView: 2.5,
+    },
+    640: {
+        slidesPerView: 2.5,
+    },
+    768: {
+        slidesPerView: 3.5,
+    },
+    1024: {
+        slidesPerView: 4.5,
+    },
+}
